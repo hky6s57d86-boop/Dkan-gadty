@@ -1,0 +1,988 @@
+/* ==========================================================
+   تراث جدّتي — التصميم الأساسي
+   ========================================================== */
+
+:root {
+  /* الألوان */
+  --color-bg: #f8f1e4;
+  --color-bg-soft: #fdf9f1;
+  --color-surface: #ffffff;
+  --color-text: #3c2a1e;
+  --color-text-soft: #6b5644;
+  --color-primary: #6e2233;
+  --color-primary-dark: #521826;
+  --color-primary-soft: #f3e2e2;
+  --color-gold: #b8863f;
+  --color-gold-soft: #f1e3c6;
+  --color-olive: #7c8354;
+  --color-line: rgba(60, 42, 30, 0.14);
+  --color-whatsapp: #3fa76a;
+
+  /* الطباعة */
+  --font-display: "Reem Kufi", "Tajawal", sans-serif;
+  --font-body: "Tajawal", sans-serif;
+
+  /* المسافات */
+  --radius-s: 10px;
+  --radius-m: 16px;
+  --radius-l: 26px;
+  --shadow-card: 0 10px 30px -14px rgba(60, 30, 20, 0.28);
+  --shadow-soft: 0 4px 16px -8px rgba(60, 30, 20, 0.22);
+  --container: 1160px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.75;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  margin: 0;
+  line-height: 1.35;
+  font-weight: 400;
+}
+
+p {
+  margin: 0;
+}
+
+.container {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- زخرفة السدو (فاصل بصري) ---------- */
+.sadu-divider {
+  height: 14px;
+  width: 100%;
+  background-image: repeating-linear-gradient(
+      135deg,
+      var(--color-primary) 0 6px,
+      transparent 6px 12px
+    ),
+    repeating-linear-gradient(45deg, var(--color-gold) 0 6px, transparent 6px 12px);
+  background-size: 24px 14px, 24px 14px;
+  background-position: right, right;
+  opacity: 0.85;
+}
+
+.sadu-divider--soft {
+  height: 8px;
+  opacity: 0.5;
+}
+
+/* ==========================================================
+   رأس الصفحة
+   ========================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: var(--color-bg-soft);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 14px;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 1.1rem + 1vw, 1.7rem);
+  color: var(--color-primary);
+}
+
+.brand-tagline {
+  font-size: 0.78rem;
+  color: var(--color-text-soft);
+}
+
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-s);
+  background: var(--color-surface);
+  color: var(--color-primary);
+}
+
+.nav-toggle svg {
+  width: 22px;
+  height: 22px;
+}
+
+.main-nav {
+  position: fixed;
+  inset: 0 0 0 auto;
+  right: 0;
+  width: min(86vw, 340px);
+  height: 100%;
+  background: var(--color-bg-soft);
+  box-shadow: -18px 0 40px -20px rgba(0, 0, 0, 0.35);
+  transform: translateX(105%);
+  transition: transform 0.35s ease;
+  z-index: 70;
+  padding: 24px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  overflow-y: auto;
+}
+
+.main-nav.is-open {
+  transform: translateX(0);
+}
+
+.nav-close {
+  align-self: flex-start;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 1.05rem;
+}
+
+.nav-links a {
+  display: block;
+  padding: 12px 6px;
+  border-bottom: 1px solid var(--color-line);
+  color: var(--color-text);
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--color-primary);
+}
+
+.nav-whatsapp-btn {
+  margin-top: auto;
+}
+
+.nav-scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 18, 12, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 65;
+}
+
+.nav-scrim.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .nav-toggle,
+  .nav-close,
+  .nav-scrim {
+    display: none;
+  }
+
+  .main-nav {
+    position: static;
+    width: auto;
+    height: auto;
+    transform: none;
+    box-shadow: none;
+    background: transparent;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    gap: 28px;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    gap: 8px;
+    font-size: 0.98rem;
+  }
+
+  .nav-links a {
+    border-bottom: none;
+    padding: 8px 4px;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    right: 4px;
+    left: 4px;
+    bottom: 2px;
+    height: 2px;
+    background: var(--color-gold);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+  }
+
+  .nav-links a:hover::after,
+  .nav-links a:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  .nav-whatsapp-btn {
+    margin-top: 0;
+  }
+}
+
+/* ==========================================================
+   الأزرار
+   ========================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  font-size: 0.98rem;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fdf6ee;
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-ghost:hover {
+  background: var(--color-primary-soft);
+}
+
+.btn-whatsapp {
+  background: var(--color-whatsapp);
+  color: #fff;
+}
+
+.btn-whatsapp:hover {
+  background: #348f59;
+}
+
+.btn-whatsapp svg {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-sm {
+  padding: 10px 18px;
+  font-size: 0.88rem;
+}
+
+/* ==========================================================
+   الواجهة الرئيسية (Hero)
+   ========================================================== */
+.hero {
+  position: relative;
+  padding-block: 56px 44px;
+  background: radial-gradient(circle at 85% 0%, var(--color-gold-soft), transparent 55%),
+    var(--color-bg);
+  overflow: hidden;
+}
+
+.hero-inner {
+  display: grid;
+  gap: 34px;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  margin-bottom: 14px;
+}
+
+.hero-eyebrow::before,
+.hero-eyebrow::after {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--color-gold);
+}
+
+.hero-title {
+  font-size: clamp(2.1rem, 1.7rem + 2vw, 3.2rem);
+  color: var(--color-primary-dark);
+  margin-bottom: 18px;
+}
+
+.hero-title em {
+  font-style: normal;
+  color: var(--color-primary);
+}
+
+.hero-desc {
+  color: var(--color-text-soft);
+  font-size: 1.05rem;
+  max-width: 46ch;
+  margin-bottom: 28px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-visual {
+  position: relative;
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(155deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-card);
+}
+
+.hero-visual .sadu-frame {
+  position: absolute;
+  inset: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-radius: calc(var(--radius-l) - 12px);
+  pointer-events: none;
+}
+
+.hero-visual-icon {
+  width: 40%;
+  color: rgba(253, 246, 238, 0.85);
+}
+
+.hero-visual-caption {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  left: 18px;
+  color: #fdf6ee;
+  font-size: 0.85rem;
+  background: rgba(0, 0, 0, 0.22);
+  padding: 8px 14px;
+  border-radius: 999px;
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+/* ==========================================================
+   عنوان القسم المشترك
+   ========================================================== */
+.section {
+  padding-block: 60px;
+}
+
+.section-alt {
+  background: var(--color-bg-soft);
+}
+
+.section-head {
+  text-align: center;
+  max-width: 60ch;
+  margin: 0 auto 34px;
+}
+
+.section-eyebrow {
+  display: block;
+  color: var(--color-gold);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: clamp(1.5rem, 1.35rem + 0.8vw, 2rem);
+  color: var(--color-primary-dark);
+  margin-bottom: 12px;
+}
+
+.section-desc {
+  color: var(--color-text-soft);
+}
+
+/* ==========================================================
+   فلاتر التصنيفات
+   ========================================================== */
+.filter-bar {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  margin-bottom: 32px;
+  scrollbar-width: thin;
+}
+
+.filter-bar::-webkit-scrollbar {
+  height: 5px;
+}
+
+.filter-bar::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: 10px;
+}
+
+.filter-btn {
+  flex-shrink: 0;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.92rem;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--color-primary);
+}
+
+.filter-btn.is-active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fdf6ee;
+}
+
+/* ==========================================================
+   شبكة المنتجات
+   ========================================================== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 22px;
+}
+
+.product-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: card-in 0.5s ease forwards;
+}
+
+@keyframes card-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(155deg, var(--color-gold-soft), var(--color-bg-soft));
+  border-bottom: 3px solid var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.product-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-media-icon {
+  width: 34%;
+  color: var(--color-primary);
+  opacity: 0.55;
+}
+
+.product-media-placeholder-label {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  left: 8px;
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--color-text-soft);
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 999px;
+  padding: 4px 8px;
+}
+
+.product-unavailable-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--color-text);
+  color: #fdf6ee;
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.product-body {
+  padding: 16px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.product-category-tag {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  color: var(--color-olive);
+  background: rgba(124, 131, 84, 0.12);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.product-name {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  color: var(--color-text);
+}
+
+.product-desc {
+  font-size: 0.86rem;
+  color: var(--color-text-soft);
+  flex: 1;
+}
+
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.product-price {
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  font-size: 0.95rem;
+}
+
+.product-price.is-onrequest {
+  font-weight: 400;
+  color: var(--color-text-soft);
+  font-size: 0.82rem;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--color-text-soft);
+  padding: 40px 20px;
+  grid-column: 1 / -1;
+}
+
+/* ==========================================================
+   نافذة تكبير الصور (Lightbox)
+   ========================================================== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 12, 8, 0.82);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  padding: 20px;
+}
+
+.lightbox.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-content {
+  position: relative;
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-m);
+  max-width: 480px;
+  width: 100%;
+  padding: 22px;
+  text-align: center;
+  transform: scale(0.94);
+  transition: transform 0.25s ease;
+}
+
+.lightbox.is-open .lightbox-content {
+  transform: scale(1);
+}
+
+.lightbox-media {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  background: linear-gradient(155deg, var(--color-gold-soft), var(--color-bg-soft));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.lightbox-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lightbox-media-icon {
+  width: 38%;
+  color: var(--color-primary);
+  opacity: 0.55;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -14px;
+  left: -14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  border: 3px solid var(--color-bg-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+  color: var(--color-primary-dark);
+}
+
+.lightbox-desc {
+  color: var(--color-text-soft);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+/* ==========================================================
+   عن المتجر
+   ========================================================== */
+.about-wrap {
+  display: grid;
+  gap: 30px;
+  align-items: center;
+}
+
+.about-emblem {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+}
+
+.about-emblem svg {
+  width: 42px;
+  height: 42px;
+}
+
+.about-text {
+  font-size: 1.05rem;
+  color: var(--color-text-soft);
+  text-align: center;
+  max-width: 62ch;
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .about-text {
+    text-align: center;
+  }
+}
+
+/* ==========================================================
+   طريقة الطلب
+   ========================================================== */
+.steps-grid {
+  display: grid;
+  gap: 20px;
+}
+
+@media (min-width: 720px) {
+  .steps-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.step-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-m);
+  padding: 26px 22px;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+}
+
+.step-number {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fdf6ee;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.step-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  color: var(--color-text);
+}
+
+.step-desc {
+  color: var(--color-text-soft);
+  font-size: 0.9rem;
+}
+
+/* ==========================================================
+   قسم التواصل (CTA)
+   ========================================================== */
+.contact-cta {
+  background: linear-gradient(160deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: #fdf6ee;
+  text-align: center;
+  padding-block: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-cta-title {
+  font-size: clamp(1.5rem, 1.3rem + 1vw, 2.1rem);
+  margin-bottom: 12px;
+}
+
+.contact-cta-desc {
+  color: rgba(253, 246, 238, 0.85);
+  max-width: 50ch;
+  margin: 0 auto 26px;
+}
+
+.contact-cta .btn-whatsapp {
+  padding: 15px 34px;
+  font-size: 1.05rem;
+}
+
+/* ==========================================================
+   التذييل
+   ========================================================== */
+.site-footer {
+  background: var(--color-text);
+  color: rgba(253, 246, 238, 0.86);
+  padding-block: 34px 26px;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: #fdf6ee;
+}
+
+.footer-tagline {
+  font-size: 0.85rem;
+  color: rgba(253, 246, 238, 0.65);
+}
+
+.footer-links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 0.88rem;
+}
+
+.footer-copy {
+  font-size: 0.78rem;
+  color: rgba(253, 246, 238, 0.55);
+  margin-top: 6px;
+}
+
+/* ==========================================================
+   زر واتساب العائم
+   ========================================================== */
+.float-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  left: 18px;
+  z-index: 55;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--color-whatsapp);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px -8px rgba(63, 167, 106, 0.6);
+  transition: transform 0.2s ease;
+}
+
+.float-whatsapp:hover {
+  transform: scale(1.06);
+}
+
+.float-whatsapp svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* ==========================================================
+   حركات الظهور عند التمرير
+   ========================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
