@@ -93,8 +93,8 @@ const PRODUCTS = [
     name: "بخور عود فاخر",
     category: "incense_fragrances",
     description: "بخور عود معتّق برائحة فواحة تدوم طويلًا.",
-    price: 120,
-    image: "",
+    price: 30,
+    image: "assets/products/بخور.jpeg",
     available: true,
   },
   {
