@@ -12,7 +12,7 @@
  *                  "kids"    ملابس الأطفال
  *                  "women"   الملابس النسائية
  *                  "burqa"   البراقع
- *                  "henna"   الحناء
+ *                  "women products"   مستلزمات نسائيه
  *                  "bukhoor" الدخون والبخور
  *                  "prayer"  جلال الصلاة
  *                  "other"   منتجات أخرى
@@ -81,11 +81,11 @@ const PRODUCTS = [
   },
   {
     id: "henna-2",
-    name: "حناء معجون جاهزة للنقش",
-    category: "henna",
-    description: "معجون حناء طازج بلون داكن غامق.",
-    price: 35,
-    image: "",
+    name: "روج سحري",
+    category: "women products",
+    description: "روج سحري يعمل على ملئ الشفتين بلون كثيف ومخملي جذاب",
+    price: 3,
+    image: "assets/products/الروج السحري.jpeg",
     available: true,
   },
   {
