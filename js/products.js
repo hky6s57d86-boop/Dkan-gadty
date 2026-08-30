@@ -72,9 +72,9 @@ const PRODUCTS = [
   },
   {
     id: "henna-1",
-    name: " كريم شعر كينروزا ابو وردة",
+    name: "كريم شعر كينروزا ابو وردة",
     category: "women_products",
-    description: "لشعر صحي ولامع.",
+    description: "لشعر صحي ولامع",
     price: 15,
     image: "assets/products/كريم شعر.jpeg",
     available: true,
