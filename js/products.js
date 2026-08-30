@@ -12,7 +12,7 @@
  *                  "kids"    ملابس الأطفال
  *                  "women"   الملابس النسائية
  *                  "burqa"   البراقع
- *                  "women products"   مستلزمات نسائيه
+ *                  "women products" مستلزمات نسائيه
  *                  "incense_fragrances" الدخون والمعطرات
  *                  "prayer"  جلال الصلاة
  *                  "other"   منتجات أخرى
