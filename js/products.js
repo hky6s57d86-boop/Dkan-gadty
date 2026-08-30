@@ -12,7 +12,7 @@
  *                  "kids"    ملابس الأطفال
  *                  "women"   الملابس النسائية
  *                  "burqa"   البراقع
- *                  "women products" مستلزمات نسائيه
+ *                  "women_products" مستلزمات نسائيه
  *                  "incense_fragrances" الدخون والمعطرات
  *                  "prayer"  جلال الصلاة
  *                  "other"   منتجات أخرى
@@ -73,7 +73,7 @@ const PRODUCTS = [
   {
     id: "henna-1",
     name: "حناء طبيعية سودانية",
-    category: "women products",
+    category: "women_products",
     description: "حناء نقية ناعمة الطحن، مناسبة للنقش والاستخدام اليومي.",
     price: 45,
     image: "",
@@ -82,7 +82,7 @@ const PRODUCTS = [
   {
     id: "Lipstick",
     name: "روج سحري",
-    category: "women products",
+    category: "women_products",
     description: "روج سحري يعمل على ملئ الشفتين بلون كثيف ومخملي جذاب",
     price: 3,
     image: "assets/products/الروج السحري.jpeg",
