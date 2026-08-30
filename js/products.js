@@ -73,14 +73,14 @@ const PRODUCTS = [
   {
     id: "henna-1",
     name: "حناء طبيعية سودانية",
-    category: "henna",
+    category: "women products",
     description: "حناء نقية ناعمة الطحن، مناسبة للنقش والاستخدام اليومي.",
     price: 45,
     image: "",
     available: true,
   },
   {
-    id: "henna-2",
+    id: "Lipstick",
     name: "روج سحري",
     category: "women products",
     description: "روج سحري يعمل على ملئ الشفتين بلون كثيف ومخملي جذاب",
