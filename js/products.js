@@ -13,7 +13,7 @@
  *                  "women"   الملابس النسائية
  *                  "burqa"   البراقع
  *                  "women products"   مستلزمات نسائيه
- *                  "bukhoor" الدخون والبخور
+ *                  "incense_fragrances" الدخون والمعطرات
  *                  "prayer"  جلال الصلاة
  *                  "other"   منتجات أخرى
  *  - description : وصف مختصر (اختياري، يمكن تركه "")
