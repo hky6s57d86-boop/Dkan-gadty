@@ -91,7 +91,7 @@ const PRODUCTS = [
   {
     id: "bukhoor-1",
     name: "بخور عود فاخر",
-    category: "bukhoor",
+    category: "incense_fragrances",
     description: "بخور عود معتّق برائحة فواحة تدوم طويلًا.",
     price: 120,
     image: "",
@@ -100,7 +100,7 @@ const PRODUCTS = [
   {
     id: "bukhoor-2",
     name: "دخون تراثي مخلّط",
-    category: "bukhoor",
+    category: "incense_fragrances",
     description: "خلطة دخون تقليدية بوصفة منزلية.",
     price: 60,
     image: "",
