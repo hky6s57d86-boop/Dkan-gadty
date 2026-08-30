@@ -9,7 +9,7 @@ const CATEGORY_LABELS = {
   kids: "ملابس الأطفال",
   women: "الملابس النسائية",
   burqa: "البراقع",
-  women_products: "مسلتزات نسائيه",
+  women_products: "مستلزمات نسائيه",
   incense_fragrances: "الدخون والمعطرات",
   prayer: "جلال الصلاة",
   other: "منتجات أخرى",
