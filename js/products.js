@@ -71,7 +71,7 @@ const PRODUCTS = [
     available: true,
   },
   {
-    id: "henna-1",
+    id: "cream-1",
     name: "كريم شعر كينروزا ابو وردة",
     category: "women_products",
     description: "لشعر صحي ولامع",
@@ -98,12 +98,12 @@ const PRODUCTS = [
     available: true,
   },
   {
-    id: "bukhoor-2",
-    name: "دخون تراثي مخلّط",
+    id: "perfume-2",
+    name: "معطر جو ومفارش",
     category: "incense_fragrances",
-    description: "خلطة دخون تقليدية بوصفة منزلية.",
-    price: 15,
-    image: "",
+    description: "عطر فواح يمنح منزلك احساسا منعشا مستوحى من جمال عطور الطبيعة .",
+    price: 50,
+    image: "assets/products/معطر.jpeg",
     available: true,
   },
   {
