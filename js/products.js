@@ -26,21 +26,21 @@
 
 const PRODUCTS = [
   {
-    id: "kids-1",
-    name: "ثوب تراثي للبنات",
+    id: "kids-Green",
+    name: "فستان بناتي بلون أخضر سيج فاتح",
     category: "kids",
-    description: "ثوب قطني مطرّز بخيوط ملونة على الطراز الشعبي، مناسب للمناسبات.",
-    price: 95,
-    image: "",
+    description: "فستان مزين بنقشة ورود وردية ناعمة، مع كشكشة أنيقة حول الرقبة وقصة واسعة ومريحة تمنحه مظهرًا لطيفًا وناعمًا.",
+    price: 20,
+    image: "assets/products/فستان اخضر.jpeg",
     available: true,
   },
   {
-    id: "kids-2",
-    name: "طقم ولادي شعبي",
+    id: "kids-offwhite",
+    name: "فستان بناتي بلون كريمي فاتح",
     category: "kids",
-    description: "طقم تقليدي مريح للأطفال بتفاصيل تطريز بسيطة.",
-    price: null,
-    image: "",
+    description: "فستان مزين بنقشة ورود موف ناعمة، بقصة مريحة وتفاصيل أنثوية جميلة، مناسب للمناسبات واللبس اليومي.",
+    price: 20,
+    image: "assets/products/فستان بيج.jpeg",
     available: true,
   },
   {
